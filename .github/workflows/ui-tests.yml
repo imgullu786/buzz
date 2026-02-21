@@ -11,6 +11,10 @@ concurrency:
   group: ui-tests-buzz-${{ github.event.number || github.ref }}
   cancel-in-progress: true
 
+permissions:
+  contents: read
+  actions: write
+
 jobs:
   ui-tests:
     runs-on: ubuntu-latest
