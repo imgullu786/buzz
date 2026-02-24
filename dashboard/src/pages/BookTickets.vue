@@ -109,7 +109,10 @@ const eventBookingResource = createResource({
 		eventBookingData.offlineMethods = data.offline_methods || [];
 	},
 	onError: (error) => {
-		if (error.message?.includes("DoesNotExistError")) {
+		if (
+			error.message?.includes("DoesNotExistError") ||
+			error.exc_type === "DoesNotExistError"
+		) {
 			eventNotFound.value = true;
 		}
 	},
